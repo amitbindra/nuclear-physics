@@ -9,13 +9,6 @@ y2 = data['target2']
 
 # Train Models
 params = {'objective': 'regression', 'metric': 'rmse', 'learning_rate': 0.01, 'num_iterations': 500}
-model1 = lgb.train(params, lgb.Dataset(X, label=y1))
-model2 = lgb.train(params, lgb.Dataset(X, label=y2))
-
-# Predictions
-y1_pred = model1.predict(X)
-y2_pred = model2.predict(X)
-product_pred = y1_pred * y2_pred
 
 # Evaluation
 rmse1 = np.sqrt(mean_squared_error(y1, y1_pred))
